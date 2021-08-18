@@ -1,0 +1,34 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title>{{action}} User</h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete'">
+    <input placeholder="{{action}} Name" matInput [(ngModel)]="local_data.name">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'">
+    <input placeholder="{{action}} email" matInput [(ngModel)]="local_data.email">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'">
+    <input placeholder="{{action}} address" matInput [(ngModel)]="local_data.address">
+  </mat-form-field>
+
+
+  <mat-form-field *ngIf="action != 'Delete'">
+    <mat-label>Gender</mat-label>
+    <select matNativeControl required [(ngModel)]="local_data.gender">
+      <option value="Male" >Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </mat-form-field>
+
+
+  <mat-form-field *ngIf="action != 'Delete'">
+    <input placeholder="{{action}} dateOfBirth" matInput [(ngModel)]="local_data.dateOfBirth">
+  </mat-form-field>
+
+  <div *ngIf="action === 'Delete'">
+    Sure to delete <b>{{local_data.name}}</b>?
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-flat-button color="#00a99d" (click)="onSubmit()">{{action}}</button>
+</div>
